@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+ <head>
+	 <title>Jasmingiroux.com</title>
+	 <link rel="stylesheet" href="../style.css" type="text/css">
+	 <link rel="stylesheet" href="../menu/menu.css" type="text/css">
+ </head>
+ <script>
+	var BTNtimes = new Array(1376923856, 1376925056);
+	var BTNdelays = new Array(3600, 1800);
+	
+	var MINtimes = new Array(1376922856, 1376924056);
+	var MINdelays = new Array(3600, 1800);
+	
+	var BTNtime = 1376923856;
+	var BTNdelay = 3600;
+ 
+	function BackgroundLoad()
+	{
+		document.getElementById("background").src = "../backgrounds/background" + Math.ceil(Math.random() * 14) + ".jpg";
+	}
+	
+	function updaterTimer()
+	{
+		var currentTime = new Date()
+		var timeLeft = Math.ceil(currentTime.getTime()/1000) - BTNtime;
+		timeLeft = BTNdelay - timeLeft%BTNdelay;
+		var minutes = Math.floor(timeLeft/60);
+		var seconds = timeLeft%60;
+		var str = "";
+		if(minutes < 10)
+			str += "0" + minutes;
+		else if(minutes == 0)
+			str += "00";
+		else 
+			str += minutes;
+			
+		str += ":"
+		
+		if(seconds < 10)
+			str += "0" + seconds;
+		else if(minutes == 0)
+			str += "00";
+		else 
+			str += seconds;
+		
+		document.getElementById("timer0").innerHTML = str;
+	}
+	
+	function updaterTimers()
+	{
+		var currentTime = new Date()
+		//BTN
+		for (i=0;i<BTNtimes.length;i++)
+		{
+			var timeLeft = Math.ceil(currentTime.getTime()/1000) - BTNtimes[i];
+			timeLeft = BTNdelays[i] - timeLeft%BTNdelays[i];
+			var minutes = Math.floor(timeLeft/60);
+			var seconds = timeLeft%60;
+			var str = "";
+			if(minutes < 10)
+				str += "0" + minutes;
+			else if(minutes == 0)
+				str += "00";
+			else 
+				str += minutes;
+				
+			str += ":"
+			
+			if(seconds < 10)
+				str += "0" + seconds;
+			else if(minutes == 0)
+				str += "00";
+			else 
+				str += seconds;
+			
+			document.getElementById("timerBTN" + i).innerHTML = str;
+		}
+		
+		//MIN
+		for (i=0;i<MINtimes.length;i++)
+		{
+			var timeLeft = Math.ceil(currentTime.getTime()/1000) - MINtimes[i];
+			timeLeft = MINdelays[i] - timeLeft%MINdelays[i];
+			var minutes = Math.floor(timeLeft/60);
+			var seconds = timeLeft%60;
+			var str = "";
+			if(minutes < 10)
+				str += "0" + minutes;
+			else if(minutes == 0)
+				str += "00";
+			else 
+				str += minutes;
+				
+			str += ":"
+			
+			if(seconds < 10)
+				str += "0" + seconds;
+			else if(minutes == 0)
+				str += "00";
+			else 
+				str += seconds;
+			
+			document.getElementById("timerMIN" + i).innerHTML = str;
+		}
+	}
+	
+	setInterval(function() { updaterTimers(); }, 1000);
+	
+ </script>
+<body OnLoad="BackgroundLoad()">
+<div>
+	<img id="background" alt="background" title="background" />
+</div>
+
+<div id="sideMenu">
+	<a href="http://www.jasmingiroux.com"><img id="profilepic" src="../menu/menu.jpg" alt="profile picture"/></a>
+
+	<script language="javascript" src="../menu/menu.js" type="text/javascript"></script>
+</div>
+<div id="scroller">
+	<h1>Jasmingiroux.com</h1>
+	<div id="content">
+		<p>Botanist <br />
+		
+		<span id="timerBTN0">time </span> Crawler Cocoon(East Shround) <br />
+		<span id="timerBTN1">time </span> Trilium Bulb(East Shround)	<br />
+		</p>
+		
+		<p>Miner <br />
+		
+		<span id="timerMIN0">time </span> Darksteel Ore(Coertas) <br />
+		<span id="timerMIN1">time </span> Gold Ore(Whereever it's at)	<br />
+		</p>
+	</div>
+</div>
+</body>	
+</html>
