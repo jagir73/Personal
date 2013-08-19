@@ -7,40 +7,12 @@
  </head>
  <script>
 	var BTNtimes = new Array(1376923856, 1376925056);
-	var BTNdelays = new Array(3600, 1800);
+	var BTNdelays = new Array(3600, 600);
 	
-	var MINtimes = new Array(1376922856, 1376924056);
-	var MINdelays = new Array(3600, 1800);
+	var MINtimes = new Array(1376922856, 1376924056, 1376922056);
+	var MINdelays = new Array(3600, 600, 1200);
 	
-	var BTNtime = 1376923856;
-	var BTNdelay = 3600;
-
-	function updaterTimer()
-	{
-		var currentTime = new Date()
-		var timeLeft = Math.ceil(currentTime.getTime()/1000) - BTNtime;
-		timeLeft = BTNdelay - timeLeft%BTNdelay;
-		var minutes = Math.floor(timeLeft/60);
-		var seconds = timeLeft%60;
-		var str = "";
-		if(minutes < 10)
-			str += "0" + minutes;
-		else if(minutes == 0)
-			str += "00";
-		else 
-			str += minutes;
-			
-		str += ":"
-		
-		if(seconds < 10)
-			str += "0" + seconds;
-		else if(seconds == 0)
-			str += "00";
-		else 
-			str += seconds;
-		
-		document.getElementById("timer0").innerHTML = str;
-	}
+	var despawnTime = 300;
 	
 	function updaterTimers()
 	{
@@ -68,6 +40,35 @@
 				str += "00";
 			else 
 				str += seconds;
+				
+			
+			if(timeLeft >= BTNdelays[i] - despawnTime)
+			{
+				var timePreDespawn = despawnTime - (BTNdelays[i] - timeLeft);
+				minutes = Math.floor(timePreDespawn/60);
+				seconds = timePreDespawn%60;
+				str += " Despawn in : ";
+				
+				if(minutes < 10)
+					str += "0" + minutes;
+				else if(minutes == 0)
+					str += "00";
+				else 
+					str += minutes;
+					
+				str += ":"
+				
+				if(seconds < 10)
+					str += "0" + seconds;
+				else if(seconds == 0)
+					str += "00";
+				else 
+					str += seconds;
+					
+				var GP = (Math.floor(timePreDespawn/3))*5;
+				
+				str += "[GP"+GP+"]";
+			}
 			
 			document.getElementById("timerBTN" + i).innerHTML = str;
 		}
@@ -80,6 +81,7 @@
 			var minutes = Math.floor(timeLeft/60);
 			var seconds = timeLeft%60;
 			var str = "";
+			
 			if(minutes < 10)
 				str += "0" + minutes;
 			else if(minutes == 0)
@@ -95,6 +97,34 @@
 				str += "00";
 			else 
 				str += seconds;
+				
+			if(timeLeft >= MINdelays[i] - despawnTime)
+			{
+				var timePreDespawn = despawnTime - (MINdelays[i] - timeLeft);
+				minutes = Math.floor(timePreDespawn/60);
+				seconds = timePreDespawn%60;
+				str += " Despawn in : ";
+				
+				if(minutes < 10)
+					str += "0" + minutes;
+				else if(minutes == 0)
+					str += "00";
+				else 
+					str += minutes;
+					
+				str += ":"
+				
+				if(seconds < 10)
+					str += "0" + seconds;
+				else if(seconds == 0)
+					str += "00";
+				else 
+					str += seconds;
+					
+				var GP = (Math.floor(timePreDespawn/3))*5;
+				
+				str += "[GP"+GP+"]";
+			}
 			
 			document.getElementById("timerMIN" + i).innerHTML = str;
 		}
@@ -118,14 +148,17 @@
 	<div id="content">
 		<p>Botanist <br />
 		
-		<span id="timerBTN0">time </span> Crawler Cocoon(East Shround) <br />
-		<span id="timerBTN1">time </span> Trilium Bulb(East Shround)	<br />
+		<span id="timerBTN0">time </span> Crawler Cocoon[East Shroud - Nine Ivies] <br />
+		<span id="timerBTN1">time </span> Trilium Bulb  [East Shroud - Nine Ivies]	<br />
+		<span id="timerBTN2">time </span> Spruce Log    [Coertas - Dragonhead]	<br />
+		<span id="timerBTN3">time </span> Vampire Plant [Coertas - Dragonhead]	<br />
 		</p>
 		
 		<p>Miner <br />
 		
-		<span id="timerMIN0">time </span> Darksteel Ore(Coertas) <br />
-		<span id="timerMIN1">time </span> Gold Ore(Whereever it's at)	<br />
+		<span id="timerMIN0">time </span> Darksteel Ore [Coertas - Dragonhead] <br />
+		<span id="timerMIN1">time </span> Astral Rock   [Coertas - Dragonhead] <br />
+		<span id="timerMIN2">time </span> Gold Ore      [Whereever    - Nearest camp]<br />
 		</p>
 	</div>
 </div>
