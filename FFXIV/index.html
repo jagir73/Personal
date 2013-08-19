@@ -14,12 +14,7 @@
 	
 	var BTNtime = 1376923856;
 	var BTNdelay = 3600;
- 
-	function BackgroundLoad()
-	{
-		document.getElementById("background").src = "../backgrounds/background" + Math.ceil(Math.random() * 14) + ".jpg";
-	}
-	
+
 	function updaterTimer()
 	{
 		var currentTime = new Date()
@@ -108,9 +103,9 @@
 	setInterval(function() { updaterTimers(); }, 1000);
 	
  </script>
-<body OnLoad="BackgroundLoad()">
+<body>
 <div>
-	<img id="background" alt="background" title="background" />
+	<img id="background" src="../backgrounds/FFXIV.jpg" alt="background" title="background"/>
 </div>
 
 <div id="sideMenu">
