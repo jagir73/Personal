@@ -6,11 +6,10 @@
 	 <link rel="stylesheet" href="../menu/menu.css" type="text/css">
  </head>
  <script>
-	var BTNtimes = new Array(1376923856, 1376925056);
-	var BTNdelays = new Array(3600, 600);
+	var BTNtimes = new Array(1376923856, 1376924576, 1376815020);
+	var delay = 4200;
 	
-	var MINtimes = new Array(1376922856, 1376924056, 1376922056);
-	var MINdelays = new Array(3600, 600, 1200);
+	var MINtimes = new Array(1376812860,1376813580, 1376814240, 1376814960);
 	
 	var despawnTime = 300;
 	
@@ -21,7 +20,7 @@
 		for (i=0;i<BTNtimes.length;i++)
 		{
 			var timeLeft = Math.ceil(currentTime.getTime()/1000) - BTNtimes[i];
-			timeLeft = BTNdelays[i] - timeLeft%BTNdelays[i];
+			timeLeft = delay - timeLeft%delay;
 			var minutes = Math.floor(timeLeft/60);
 			var seconds = timeLeft%60;
 			var str = "";
@@ -42,9 +41,9 @@
 				str += seconds;
 				
 			
-			if(timeLeft >= BTNdelays[i] - despawnTime)
+			if(timeLeft >= delay - despawnTime)
 			{
-				var timePreDespawn = despawnTime - (BTNdelays[i] - timeLeft);
+				var timePreDespawn = despawnTime - (delay - timeLeft);
 				minutes = Math.floor(timePreDespawn/60);
 				seconds = timePreDespawn%60;
 				str += " Despawn in : ";
@@ -77,7 +76,7 @@
 		for (i=0;i<MINtimes.length;i++)
 		{
 			var timeLeft = Math.ceil(currentTime.getTime()/1000) - MINtimes[i];
-			timeLeft = MINdelays[i] - timeLeft%MINdelays[i];
+			timeLeft = delay - timeLeft%delay;
 			var minutes = Math.floor(timeLeft/60);
 			var seconds = timeLeft%60;
 			var str = "";
@@ -98,9 +97,9 @@
 			else 
 				str += seconds;
 				
-			if(timeLeft >= MINdelays[i] - despawnTime)
+			if(timeLeft >= delay - despawnTime)
 			{
-				var timePreDespawn = despawnTime - (MINdelays[i] - timeLeft);
+				var timePreDespawn = despawnTime - (delay - timeLeft);
 				minutes = Math.floor(timePreDespawn/60);
 				seconds = timePreDespawn%60;
 				str += " Despawn in : ";
@@ -132,6 +131,9 @@
 	
 	setInterval(function() { updaterTimers(); }, 1000);
 	
+	//var temp = new Date("August 18, 2013 4:36:00").getTime()/1000;
+	//document.write(temp);
+	
  </script>
 <body>
 <div>
@@ -139,6 +141,7 @@
 </div>
 
 <div id="sideMenu">
+	
 	<a href="http://www.jasmingiroux.com"><img id="profilepic" src="../menu/menu.jpg" alt="profile picture"/></a>
 
 	<script language="javascript" src="../menu/menu.js" type="text/javascript"></script>
@@ -146,19 +149,21 @@
 <div id="scroller">
 	<h1>Jasmingiroux.com</h1>
 	<div id="content">
-		<p>Botanist <br />
-		
-		<span id="timerBTN0">time </span> Crawler Cocoon[East Shroud - Nine Ivies] <br />
-		<span id="timerBTN1">time </span> Trilium Bulb  [East Shroud - Nine Ivies]	<br />
-		<span id="timerBTN2">time </span> Spruce Log    [Coertas - Dragonhead]	<br />
-		<span id="timerBTN3">time </span> Vampire Plant [Coertas - Dragonhead]	<br />
+		<p>
+			Botanist <br />
+			
+			<span id="timerBTN0">time </span> Trilium Bulb  [East Shroud - Nine Ivies]	<br />
+			<span id="timerBTN1">time </span> Crawler Cocoon[East Shroud - Nine Ivies] <br />
+			<span id="timerBTN2">time </span> Spruce Log    [Coertas - Dragonhead]	<br />
 		</p>
 		
-		<p>Miner <br />
-		
-		<span id="timerMIN0">time </span> Darksteel Ore [Coertas - Dragonhead] <br />
-		<span id="timerMIN1">time </span> Astral Rock   [Coertas - Dragonhead] <br />
-		<span id="timerMIN2">time </span> Gold Ore      [Whereever    - Nearest camp]<br />
+		<p>
+			Miner <br />
+			
+			<span id="timerMIN0">time </span> Astral Rock   [Coertas - Dragonhead] <br />
+			<span id="timerMIN1">time </span> Darksteel Ore [Coertas - Dragonhead] <br />
+			<span id="timerMIN2">time </span> Gold Sand     [Eastern Thanalan - Drybone]<br />
+			<span id="timerMIN3">time </span> Gold Ore      [Eastern Thanalan - Drybone]<br />
 		</p>
 	</div>
 </div>
