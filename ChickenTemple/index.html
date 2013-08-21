@@ -3,13 +3,13 @@
  <head>
 	<title>Chicken Temple</title>
 	<link rel="shortcut icon" href="images/favicon.png" type="image/png" />
-	<link rel="stylesheet" href="../style.css" type="text/css">
-	<link rel="stylesheet" href="../menu/menu.css" type="text/css">
+	<link rel="stylesheet" href="/style.css" type="text/css">
+	<link rel="stylesheet" href="/menu/menu.css" type="text/css">
  </head>
  <script>
 	function BackgroundLoad()
 	{
-		document.getElementById("background").src = "../backgrounds/background" + Math.ceil(Math.random() * 14) + ".jpg";
+		document.getElementById("background").src = "/backgrounds/background" + Math.ceil(Math.random() * 14) + ".jpg";
 	}
  </script>
 <body OnLoad="BackgroundLoad()">
@@ -17,14 +17,10 @@
 	<img id="background" alt="background" title="background" />
 </div>
 
-<div id="sideMenu">
-	<a href="http://www.jasmingiroux.com"><img id="profilepic" src="../menu/menu.jpg" alt="profile picture"/></a>
+<script language="javascript" src="/menu/menu.js" type="text/javascript"></script>
 
-	<script language="javascript" src="../menu/menu.js" type="text/javascript"></script>
-</div>
 <div id="scroller">
-	<h1>Jasmingiroux.com</h1>
-	<div id="game">
+	<div id="content">
 		<h1 style="color:red; text-align:center;">The Legend of Zelda: A Link to the Past "DLC" : Chicken Temple.</h1>
 
 		<div style="margin:auto;width:800px;">

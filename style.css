@@ -40,3 +40,9 @@ h1
 	text-align: center;
 	color: red;
 }
+
+a:link    {color:blue;}
+
+a:visited {color:blue;}
+
+a:hover{font-size:150%;}

@@ -70,7 +70,7 @@ function listCallback(scores, numscores, response) {
 var leaderboard = new Leaderboard(submitCallback, listCallback);
 
 //Add the canvas element to the body.
-var canvasElement = $('<canvas style="padding-left:300px;" id="canvas" width="' + CANVAS_WIDTH + 
+var canvasElement = $('<canvas style="padding-left: 0;padding-right: 0;margin-left: auto;margin-right: auto; display: block;" id="canvas" width="' + CANVAS_WIDTH + 
           '" height="' + CANVAS_HEIGHT + '">This text is displayed if your browser does not support HTML5 Canvas.</canvas>');
 var canvas = canvasElement.get(0).getContext("2d");
 canvasElement.appendTo('#content');
