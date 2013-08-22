@@ -18,7 +18,7 @@ document.write('</p>');
 document.write('<p>Other things in life');
 	document.write('<ul>');
 		/*document.write('<li><a href="/Video">Videos</a></li>');*/
-		/*document.write('<li><a href="/Wakeboarding">Wakeboarding</a></li>');*/
+		document.write('<li><a href="/Wakeboarding">Wakeboarding</a></li>');
 		document.write('<li><a href="/Wakesurfing">Wakesurfing</a></li>');
 	document.write('</ul>');
 document.write('</p>');
