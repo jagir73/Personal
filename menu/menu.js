@@ -1,5 +1,5 @@
 document.write('<div id="sideMenu">');
-	document.write('<a href="/"><img id="profilepic" src="menu/menu.jpg" alt="profile picture"/></a>');
+	document.write('<a href="/"><img id="profilepic" src="/menu/menu.jpg" alt="profile picture"/></a>');
 
 document.write('<p>IFT-2103 game projects');
 	document.write('<ul>');
